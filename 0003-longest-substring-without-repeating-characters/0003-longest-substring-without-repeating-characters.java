@@ -3,7 +3,7 @@ class Solution {
 
         Set<Character> uniqueCharacters = new HashSet<>();
 
-        int length = 0, start = 0, end = 0, count = 0;
+        int length = 0, start = 0, end = 0;
 
         while (start < s.length() && end < s.length()) {
 

@@ -1,25 +1,15 @@
 class Solution {
    
     public boolean containsNearbyDuplicate(int[] nums, int k) {
-        boolean flag = false;
+        if (k == 0) return false;
 
-        Map<Integer, Integer> numbers = new TreeMap<>();
-
+        Map<Integer, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-
-            if (numbers.containsKey(nums[i])) {
-                if (Math.abs(i - numbers.get(nums[i])) <= k) {
-                    flag = true;
-                    break;
-                } else {
-                    numbers.put(nums[i], i);
-
-                }
-            } else {
-                numbers.put(nums[i], i);
-            }
+            int integer = nums[i];
+            if (hashMap.containsKey(integer) && i - hashMap.get(integer) <= k)
+                return true;
+            hashMap.put(integer, i);
         }
-
-        return flag;
+        return false;
     }
 }
